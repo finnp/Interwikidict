@@ -86,17 +86,15 @@ position:absolute;
           </style>
 </head>
 <body>
-<input id="startlang" type="text" value="en" style="display:none;">
-<input id="targetlang" type="text" value="de" style="display:none;">
-<div style="position:absolute; left: 400px; top: 125px" id="lang_en" class="lang en">English [en]</div><br/>
-<div style="position:absolute; left: 600px; top: 125px" id="lang_de" class="lang de">German [de]</div><br/>
-<div id="lang_fr" class="lang fr">French [fr]</div><br/>
-<div id="lang_it" class="lang it">Italian [it]</div><br/>
-<div id="lang_pl" class="lang pl">Polish [pl]</div><br/>
-<div id="lang_es" class="lang es">Spanish [es]</div><br/>
-<div id="lang_ja" class="lang ja">Japanese [ja]</div><br/>
+<div data-iso="en" style="position:absolute; left: 400px; top: 125px" id="lang_en" class="lang en">English [en]</div><br/>
+<div data-iso="de" style="position:absolute; left: 600px; top: 125px" id="lang_de" class="lang de">German [de]</div><br/>
+<div data-iso="fr" id="lang_fr" class="lang fr">French [fr]</div><br/>
+<div data-iso="it" id="lang_it" class="lang it">Italian [it]</div><br/>
+<div data-iso="pl" id="lang_pl" class="lang pl">Polish [pl]</div><br/>
+<div data-iso="es" id="lang_es" class="lang es">Spanish [es]</div><br/>
+<div data-iso="ja" id="lang_ja" class="lang ja">Japanese [ja]</div><br/>
 <div class="input-box" id="inputbox">
-     <input id="translateinput" type="text" x-webkit-speech="">  <a class="myButton" href="javascript:translate($('translateinput').value, $('startlang').value, $('targetlang').value)">OK</a/>
+     <input id="translateinput" type="text" x-webkit-speech="">  <a class="myButton" href="javascript:translate()">OK</a/>
 </div>
 <div class="outbox-box" id="outputbox"></div>
 </body></html>

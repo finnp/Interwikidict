@@ -1,7 +1,7 @@
 var lang = {
 from: {object: {idleposition: {x: 8, y: 27}, iso: 'en', element: {} }, labelposition: {x: 400, y: 125} },
 to: {object: {idleposition: {x: 8, y: 8}, iso: 'de', element: {} }, labelposition: {x: 600, y: 125} },
-drag: {targetposition: {x: 0, y: 0} } //target where the object snaps to, can be revert 
+drag: {targetposition: {x: 0, y: 0} } //target where the object moves to, when released (can be revert)
 }
 
 function lang_revert(lang_target) {
@@ -15,53 +15,31 @@ function lang_revert(lang_target) {
 
 }
 
-
-function onDropAction (element, lang_target, box) { // element is draggable
+function onDropAction (element, lang_target) { 
     // make place for the new element, if necessery, change places if you are supposed
     if(!(element == lang.from.object.element || element == lang.to.object.element))
     {
         //move old language to idleposition
         new Effect.Move(lang_target.object.element, { x: lang_target.object.idleposition.x, y: lang_target.object.idleposition.y, mode: 'absolute' });
-        lang_target.object.idleposition = lang.drag.targetposition;
-        lang.drag.targetposition = lang_target.labelposition; 
+        //change lang_target information
+        lang_target.object.element = element;
+        lang_target.object.iso = element.dataset.iso;
+        lang_target.object.idleposition.x = lang.drag.targetposition.x;
+        lang_target.object.idleposition.y = lang.drag.targetposition.y;
+        // set targetposition to the correct labelposition
+        lang.drag.targetposition.x = lang_target.labelposition.x;
+        lang.drag.targetposition.y = lang_target.labelposition.y;
     } else if (element != lang_target.object.element)
     {
         //change positions
         new Effect.Move(lang_target.object.element, { x: lang_revert(lang_target).labelposition.x, y: lang_revert(lang_target).labelposition.y, mode: 'absolute' });
         //change lang object positions
-        lang.drag.targetposition = lang_target.labelposition; 
+        lang.drag.targetposition.x = lang_target.labelposition.x; 
+        lang.drag.targetposition.y = lang_target.labelposition.y; 
         lang = {from: {object: lang.to.object, labelposition: lang.from.labelposition}, to: {object: lang.from.object, labelposition: lang.to.labelposition} , drag: lang.drag}
 
     }
-    // set targetposition
-    console.log(lang);
-    
-    /*
-    lang_target.object.element = element;
-    
-    if(lang.from.object.iso == element.id) {
-    lang_target.object.idleposition.x = lang.from.object.idleposition.x;
-    lang_target.object.idleposition.y = lang.from.object.idleposition.y;
-    } else if(lang.to.object.iso == element.id) {
-    lang_target.object.idleposition.x = lang.to.object.idleposition.x;
-    lang_target.object.idleposition.y = lang.to.object.idleposition.y;  
-    } else {
-    lang_target.object.idleposition.x = lang.drag.targetposition.x;
-    lang_target.object.idleposition.y = lang.drag.targetposition.y;
-    }
-    
-    lang_target.iso = element.dataset.iso;
-    if(lang_target.iso ==lang.from.object.iso){
-    lang.drag.targetposition.x = lang.labelposition.from.x;
-    lang.drag.targetposition.y = lang.labelposition.from.y;
-    } else {
-    lang.drag.targetposition.x = lang.labelposition.to.x;
-    lang.drag.targetposition.y = lang.labelposition.to.y;  
-    }
-    */
-        translate(); 
-
-   
+    translate(); 
 }
 
 function onStartAction(element) {
@@ -69,16 +47,9 @@ function onStartAction(element) {
    lang.drag.targetposition.y = element.element.offsetTop;
 }
 
-function onHoverAction (element, lang_target, box) {
-  if(element.dataset.iso == lang_target.iso) {
-   $(box).setAttribute("class", "reject");   
- }
-}
 
 function onEndAction(element) {
   new Effect.Move(element.element, { x: lang.drag.targetposition.x, y: lang.drag.targetposition.y, mode: 'absolute' });
-  $('inputbox').setAttribute("class", "input-box");  
-  $('outputbox').setAttribute("class", "output-box");  
 }
 
 
@@ -115,18 +86,12 @@ window.onload=function()
     accept: 'lang',
     hoverclass: 'accept',
     onDrop: function(element) { 
-    onDropAction(element, lang.to, 'outputbox');   },
-    onHover: function(element) {
-    onHoverAction(element, lang.from, 'outputbox');
-    }
+    onDropAction(element, lang.to);   }
     });
     Droppables.add('translateinput', { 
     accept: 'lang',
     hoverclass: 'accept',
     onDrop: function(element) { 
-    onDropAction(element, lang.from, 'outputbox');   },    
-    onHover: function(element) {
-    onHoverAction(element, lang.to, 'inputbox');
-    }
+    onDropAction(element, lang.from);   }
   });
 }

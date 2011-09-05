@@ -60,7 +60,8 @@ function translate() {
           //loading
         },
 		onSuccess: function(transport){
-        $('outputbox').innerHTML  = transport.responseText;
+        $('outputbox').innerHTML  = transport.responseText.evalJSON(true).translation;
+        console.log(transport);
        },
        on404: function(){
          //404
@@ -70,6 +71,14 @@ function translate() {
 
 window.onload=function()
 {
+    $('translateinput').onkeyup = 
+        function(event)
+        {
+            if(event.keyCode == 13)
+            {
+                translate();
+            }
+        }
     lang.from.object.element = $('lang_en');
     lang.to.object.element = $('lang_de');
     var draggable_options = { onEnd: function (element) {    onEndAction(element);    }, onStart: function(element) {onStartAction(element);} };
@@ -93,5 +102,5 @@ window.onload=function()
     hoverclass: 'accept',
     onDrop: function(element) { 
     onDropAction(element, lang.from);   }
-  });
+    });
 }

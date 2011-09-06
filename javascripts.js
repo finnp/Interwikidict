@@ -81,7 +81,7 @@ window.onload=function()
         }
     lang.from.object.element = $('lang_en');
     lang.to.object.element = $('lang_de');
-    var draggable_options = { onEnd: function (element) {    onEndAction(element);    }, onStart: function(element) {onStartAction(element);} };
+    var draggable_options = { handle: 'drag_move', onEnd: function (element) {    onEndAction(element);    }, onStart: function(element) {onStartAction(element);} };
     //Draggables
      new Draggable('lang_de', draggable_options);     
      new Draggable('lang_en', draggable_options);

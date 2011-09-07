@@ -23,6 +23,11 @@
 <div class="input-box" id="inputbox">
      <input id="translateinput" type="text" x-webkit-speech="">  <a class="myButton" href="javascript:translate()">OK</a/>
 </div>
-<div class="outbox-box" id="outputbox"></div>
+<div class="outbox-box" id="outputbox">
+    <div id="cube">
+        <div id="outputface" class="front face"><br/><br/><div id="wikioutput" ></div><div class="downbar"><a href="javascript:$('cube').style.webkitTransform = 'rotateX(90deg) rotateY(0deg)';">Source and Licensing</a></div></div>
+        <div class="down face"><br/><br/><div id="sourceoutput"></div><div class="downbar"><a href="javascript:$('cube').style.webkitTransform = 'rotateX(0deg) rotateY(0deg)';">back</a></div></div>
+    </div>
+</div>
 </body>
 </html>

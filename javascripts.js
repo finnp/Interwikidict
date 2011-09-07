@@ -60,13 +60,17 @@ function translate() {
           //loading
         },
 		onSuccess: function(transport){
-        $('outputbox').innerHTML  = transport.responseText.evalJSON(true).translation;
-        console.log(transport);
+        $('wikioutput').innerHTML  = transport.responseText.evalJSON(true).translation;
+        source_info_wikipedia();
        },
        on404: function(){
          //404
        }
 	});
+}
+
+function source_info_wikipedia() {
+    $('sourceoutput').innerHTML = "Tanslation based on the Wikipedia articles <a href='http://"+lang.from.object.iso+".wikipedia.org/wiki/"+$('translateinput').value+"'>"+$('translateinput').value+"</a> and <a href='http://"+lang.to.object.iso+".wikipedia.org/wiki/"+$('wikioutput').innerHTML+"'>"+$('wikioutput').innerHTML+"</a>";
 }
 
 window.onload=function()
@@ -91,7 +95,7 @@ window.onload=function()
      new Draggable('lang_es', draggable_options);
      new Draggable('lang_ja', draggable_options);
      //Droppables
-    Droppables.add('outputbox', { 
+    Droppables.add('outputface', { 
     accept: 'lang',
     hoverclass: 'accept',
     onDrop: function(element) { 

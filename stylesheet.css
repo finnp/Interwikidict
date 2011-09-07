@@ -29,21 +29,46 @@ body
 	padding-left: 10px;
 	width: 40%;
 }
-#outputbox
-{
-    border: 3px solid #fff;
-	background-color: #fff;
+#cube {
+      position: relative;
+      margin: 0 auto;
+      height: 400px;
+      width: 400px;
+      -webkit-transition: -webkit-transform 1s linear;
+      -webkit-transform-style: preserve-3d;
+      -webkit-transform-origin: center center -200px;
+}
+.downbar {
+    position: absolute;
+    bottom: 3px;
+    right: 3px;
+    height: 20px;
+    font-size: 50%;
+}
+.face {
+      position: absolute;
+      height: 360px;
+      width: 360px;
+      padding: 20px;
+      background-color: rgba(255, 255, 255, 1);
+      border: 3px solid #fff;
 	font-family: Arial, Helvetica;
 	font-size: 150%;
-	height: 30%;
-	left: 35%;
-	margin-top: -20px;
 	-moz-box-shadow: 0px 5px 4px rgba(0, 0, 0, 0.20);
-	padding-top: 80px;
-	position: absolute;
-	text-align: center;
+	text-align: center; 
 	-webkit-box-shadow: 0px 5px 4px rgba(0, 0, 0, 0.20);
-	width: 30%;
+    padding-top: 20px;
+}
+#cube .front {
+
+}
+#cube .down {
+    -webkit-transform: rotateX(-90deg) translateY(200px) translateZ(200px);
+}
+#outputbox
+{
+    -webkit-perspective: 800;
+    -webkit-perspective-origin: 50% 50%;
 }
 .accept
 {

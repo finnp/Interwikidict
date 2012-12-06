@@ -1,0 +1,68 @@
+!!! XML
+!!!
+%html{:lang => "de", "xml:lang" => "de", :xmlns => "http://www.w3.org/1999/xhtml"}
+  %head
+    %title interwikidict
+    %meta{:content => "Dictionary using interwiki information", :name => "description"}/
+    %meta{:content => "Finn Pauls", :name => "author"}/
+    %script{:src => "//ajax.googleapis.com/ajax/libs/prototype/1.7.1.0/prototype.js"}
+    %script{:src => "//ajax.googleapis.com/ajax/libs/scriptaculous/1.9.0/scriptaculous.js"}
+    %script{:src => "/js/javascripts.js", :type => "text/javascript"}
+    %link{:href => "/css/stylesheet.css", :rel => "stylesheet", :type => "text/css"}/
+  %body
+    #lang_en.lang.en{"data-idlepositionx" => "8", "data-idlepositiony" => "27", "data-iso" => "en", :style => "position:absolute; left: 400px; top: 125px"}
+      %img.drag_move{:alt => "move", :src => "img/arrow-move.png"}>/
+      English [en]
+    %br/
+    #lang_de.lang.de{"data-idlepositionx" => "8", "data-idlepositiony" => "8", "data-iso" => "de", :style => "position:absolute; left: 600px; top: 125px"}
+      %img.drag_move{:alt => "move", :src => "img/arrow-move.png"}>/
+      German [de]
+    %br/
+    #lang_fr.lang.fr{"data-iso" => "fr"}
+      %img.drag_move{:alt => "move", :src => "img/arrow-move.png"}>/
+      French [fr]
+    %br/
+    #lang_it.lang.it{"data-iso" => "it"}
+      %img.drag_move{:alt => "move", :src => "img/arrow-move.png"}>/
+      Italian [it]
+    %br/
+    #lang_pl.lang.pl{"data-iso" => "pl"}
+      %img.drag_move{:alt => "move", :src => "img/arrow-move.png"}>/
+      Polish [pl]
+    %br/
+    #lang_es.lang.es{"data-iso" => "es"}
+      %img.drag_move{:alt => "move", :src => "img/arrow-move.png"}>/
+      Spanish [es]
+    %br/
+    #lang_ja.lang.ja{"data-iso" => "ja"}
+      %img.drag_move{:alt => "move", :src => "img/arrow-move.png"}>/
+      Japanese [ja]
+    %br/
+    #lang_fi.lang.fi{"data-iso" => "fi"}
+      %img.drag_move{:alt => "move", :src => "img/arrow-move.png"}>/
+      Finnish [fi]
+    %br/
+    %table#logo.logo
+      %tr
+        %td
+          %img{:alt => "logo", :src => "img/logo.png"}/
+        %td
+          %h1 interwikidict
+    #inputbox.input-box
+      %input#translateinput{:type => "text", "x-webkit-speech" => ""}
+        %a.myButton{:href => "javascript:translate()"}
+          OK</a/>
+    #outputbox.outbox-box
+      #cube
+        #outputface.front.face
+          %br/
+          %br/
+          #wikioutput
+          .downbar
+            %a{:href => "javascript:$('cube').style.webkitTransform = 'rotateX(90deg) rotateY(0deg)';"} Source and Licensing
+        .down.face
+          %br/
+          %br/
+          #sourceoutput
+          .downbar
+            %a{:href => "javascript:$('cube').style.webkitTransform = 'rotateX(0deg) rotateY(0deg)';"} back

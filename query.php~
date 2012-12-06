@@ -1,6 +1,6 @@
 <?php	
 header('content-type: application/json');
-// Get Translation test
+// Get Translation
 $start_lang = urlencode($_GET['lang1']);
 $target_lang = urlencode($_GET['lang2']);
 $word = urlencode($_GET['word']);

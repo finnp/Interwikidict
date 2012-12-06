@@ -7,7 +7,7 @@ require 'open-uri'
 require 'json'
 
 
-post '/query/:from/:to/:word' do |site|
+post '/query/:from/:to/:word' do
   url = "http://" + params[:from] + 
     ".wikipedia.org/w/api.php?action=query&prop=langlinks&titles=" + 
     params[:word] + "&lllimit=500&redirects=1&format=json"

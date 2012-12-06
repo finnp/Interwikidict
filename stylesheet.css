@@ -1,0 +1,107 @@
+body
+{
+	background-color: #efefef;
+	font-family: Arial, Helvetica;
+}
+.drag_move
+{
+    cursor: pointer;
+    cursor: hand;
+}
+#inputbox
+{
+	left: 30%;
+	position: relative;
+	z-index: 99;
+}
+#logo
+{
+    margin-left:auto;
+    margin-right:auto;
+}
+#translateinput
+{
+	border: 3px solid yellowgreen;
+	border-radius: 20px;
+	font-size: 150%;
+	height: 40px;
+	outline: 0;
+	padding-left: 10px;
+	width: 40%;
+}
+#cube {
+      position: relative;
+      margin: 0 auto;
+      height: 400px;
+      width: 400px;
+      -webkit-transition: -webkit-transform 1s linear;
+      -webkit-transform-style: preserve-3d;
+      -webkit-transform-origin: center center -200px;
+}
+.downbar {
+    position: absolute;
+    bottom: 3px;
+    right: 3px;
+    height: 20px;
+    font-size: 50%;
+}
+.face {
+      position: absolute;
+      height: 360px;
+      width: 360px;
+      padding: 20px;
+      background-color: rgba(255, 255, 255, 1);
+      border: 3px solid #fff;
+	font-family: Arial, Helvetica;
+	font-size: 150%;
+	-moz-box-shadow: 0px 5px 4px rgba(0, 0, 0, 0.20);
+	text-align: center; 
+	-webkit-box-shadow: 0px 5px 4px rgba(0, 0, 0, 0.20);
+    padding-top: 20px;
+}
+#cube .front {
+
+}
+#cube .down {
+    -webkit-transform: rotateX(-90deg) translateY(200px) translateZ(200px);
+}
+#outputbox
+{
+    -webkit-perspective: 800;
+    -webkit-perspective-origin: 50% 50%;
+}
+.accept
+{
+	border: 3px dashed yellowgreen !important;
+    background-color: #DFFE9E !important;
+}
+.reject
+{
+	border: 3px dashed red !important;
+}
+.myButton {
+	-moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
+	box-shadow:inset 0px 1px 0px 0px #ffffff;
+	background-color:#843963;
+	-moz-border-radius:18px;
+	-webkit-border-radius:18px;
+	border-radius:18px;
+	border:1px solid #730e47;
+	display:inline-block;
+	color:#ffffff;
+	font-family:arial;
+	font-size:19px;
+	font-weight:bold;
+	padding:6px 24px;
+	text-decoration:none;
+}.myButton:hover {
+	background-color:#730e47;
+}.myButton:active {
+	position:relative;
+	top:1px;
+}
+.lang
+{
+	position: absolute;
+}

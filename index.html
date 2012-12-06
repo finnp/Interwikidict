@@ -1,0 +1,33 @@
+<?xml version="1.0" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de" lang="de">
+<head>
+    <title>interwikidict</title>
+    <meta name="description" content="Dictionary using interwiki information" />
+    <meta name="author" content="Finn Pauls" />
+    <script type="text/javascript" src="/prototype/prototype.js"></script>
+    <script type="text/javascript" src="/scriptaculous/scriptaculous.js"></script>
+    <script type="text/javascript" src="javascripts.js"></script>
+    <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+</head>
+<body>
+<div data-idlepositionx="8" data-idlepositiony="27" data-iso="en" style="position:absolute; left: 400px; top: 125px" id="lang_en" class="lang en"><img class="drag_move"alt="move" src="img/arrow-move.png"/>English [en]</div><br/>
+<div data-idlepositionx="8" data-idlepositiony="8" data-iso="de" style="position:absolute; left: 600px; top: 125px" id="lang_de" class="lang de"><img class="drag_move"alt="move" src="img/arrow-move.png"/>German [de]</div><br/>
+<div data-iso="fr" id="lang_fr" class="lang fr"><img class="drag_move"alt="move" src="img/arrow-move.png"/>French [fr]</div><br/>
+<div data-iso="it" id="lang_it" class="lang it"><img class="drag_move"alt="move" src="img/arrow-move.png"/>Italian [it]</div><br/>
+<div data-iso="pl" id="lang_pl" class="lang pl"><img class="drag_move"alt="move" src="img/arrow-move.png"/>Polish [pl]</div><br/>
+<div data-iso="es" id="lang_es" class="lang es"><img class="drag_move"alt="move" src="img/arrow-move.png"/>Spanish [es]</div><br/>
+<div data-iso="ja" id="lang_ja" class="lang ja"><img class="drag_move"alt="move" src="img/arrow-move.png"/>Japanese [ja]</div><br/>
+<table  class="logo" id="logo"><tr><td><img alt="logo" src="img/logo.png"/></td><td><h1>interwikidict</h1></td></tr></table>
+<div class="input-box" id="inputbox">
+     <input id="translateinput" type="text" x-webkit-speech="">  <a class="myButton" href="javascript:translate()">OK</a/>
+</div>
+<div class="outbox-box" id="outputbox">
+    <div id="cube">
+        <div id="outputface" class="front face"><br/><br/><div id="wikioutput" ></div><div class="downbar"><a href="javascript:$('cube').style.webkitTransform = 'rotateX(90deg) rotateY(0deg)';">Source and Licensing</a></div></div>
+        <div class="down face"><br/><br/><div id="sourceoutput"></div><div class="downbar"><a href="javascript:$('cube').style.webkitTransform = 'rotateX(0deg) rotateY(0deg)';">back</a></div></div>
+    </div>
+</div>
+</body>
+</html>
